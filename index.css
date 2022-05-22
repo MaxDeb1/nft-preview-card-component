@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+/* ------------------- */
+/* Custom properties   */
+/* ------------------- */
+
+:root {
+    /* colors */
+    --clr-soft-blue: 215 51% 70%;
+    --clr-cyan: 178 100% 50%;
+    --clr-main: 217 54% 11%;
+    --clr-card: 216 50% 16%;
+    --clr-line: 215 32% 27%;
+    --clr-white: 0 0% 100%;
+    
+    /* font-sizes */
+    --fs-500: 1.25rem; /* 20px */
+    --fs-400: 1.125rem; /* 18px */
+    --fs-300: 1rem; /* 16px */
+    --fs-200: 0.96rem;
+    
+    /* font-families */
+    --ff-outfit: 'Outfit', sans-serif;
+
+    /* margin-top */
+    --mt-xl: 1.2rem;
+    --mt-l: 0.7rem;
+    --mt-m: 0.625rem;
+    --mt-s: 0.4rem;
+}
+
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+    margin: 0; 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 400;
+}
+
+p {
+    font-weight: 300;
+}
+
+/* set up the body */
+body {
+    font-family: var(--ff-outfit);
+    font-size: var(--fs-300);
+    color: hsl( var(--clr-soft-blue) );
+    background-color: hsl( var(--clr-main) );
+    line-height: 1.675;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a {
+    color: hsl( var(--clr-white) );
+}
+
+/* make images easier to work with */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------- */
+/* Utility classes     */
+/* ------------------- */
+
+/* general */
+
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.mt-xl { margin-top: var(--mt-xl);}
+.mt-l { margin-top: var(--mt-l);}
+.mt-m { margin-top: var(--mt-m);}
+.mt-s { margin-top: var(--mt-s);}
+
+/* colors */
+
+.bg-main { background-color: hsl( var(--clr-main) );}
+.bg-card { background-color: hsl( var(--clr-card) );}
+
+.text-accent { color: hsl( var(--clr-soft-blue) );}
+.text-crypto { color: hsl( var(--clr-cyan) );}
+.text-white { color: hsl( var(--clr-white) );}
+
+.line { color: hsl( var(--clr-line) );}
+
+/* typography */
+
+.ff-outfit { font-family: var(--ff-outfit); } 
+
+.letter-spacing-1 { letter-spacing: 4.75px; } 
+.letter-spacing-2 { letter-spacing: 2.7px; } 
+.letter-spacing-3 { letter-spacing: 2.35px; } 
+
+.uppercase { text-transform: uppercase; }
+
+.fs-500 { font-size: var(--fs-500); }
+.fs-400 { font-size: var(--fs-400); }
+.fs-300 { font-size: var(--fs-300); }
+.fs-200 { font-size: var(--fs-200); }
+
+
+/* ----------------------------- */
+/* Layout & Components           */
+/* ----------------------------- */
+
+.card {
+    display: block;
+    place-items: center;
+    padding: 1.5625rem;
+    width: 326px;
+}
+
+.card,
+.card > *,
+.nft > img {
+    border-radius: 10px;
+}
+
+.nft {
+    position: relative;
+    background-color: hsl( var(--clr-cyan));
+    cursor: pointer;
+}
+
+.nft img:first-child {
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.view {
+    position: absolute;
+    margin: auto;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.signature {
+    flex-direction: row;
+    border-top: 1px solid hsl( var(--clr-line));
+    padding-top: 1.15rem;
+    margin-top: var(--mt-m);
+}
+
+.signature > img {
+    width: 33px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    border: 1px solid hsl( var(--clr-white));
+    margin-right: 0.7rem;
+}
+
+.attribution { 
+    position: absolute;
+    font-size: 11px; 
+    text-align: center;
+    bottom: 1rem;
+}
+
+.attribution a { 
+    color: hsl(228, 45%, 54%); 
+}
+
+/* hover effects */
+h1:hover,
+span:hover {
+    cursor: pointer;
+    color: hsl( var(--clr-cyan) );
+}
+
+.nft:hover img:first-child {
+    opacity: 0.5;
+}
+
+.nft:hover .view {
+    opacity: 1;
+}
+
+.attribution a:hover {
+    color: hsl( var(--clr-white) );
+}
